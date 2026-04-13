@@ -23,7 +23,7 @@ const LandingPage = ({ onRoleSelect }: LandingPageProps) => {
       {/* Brand badge */}
       <div className="absolute top-6 right-6 text-center text-[0.6rem] font-bold tracking-widest text-muted-foreground border-[1.5px] border-foreground rounded-[10px] px-3 py-2 z-10">
         DESIGNED AND DEVELOPED BY
-        <span className="block text-[0.7rem] font-bold text-foreground">BIT RANCHI · RECORE</span>
+        <span className="block text-[0.7rem] font-bold text-foreground">IIIT RANCHI · RECORE</span>
       </div>
 
       {/* Main card */}
