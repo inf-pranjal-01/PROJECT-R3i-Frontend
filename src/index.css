@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 53%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 7%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 7%;
+
+    --radius: 0.5rem;
+
+    /* R3i custom tokens */
+    --r3i-grad-start: 220 100% 50%;
+    --r3i-grad-mid: 270 100% 60%;
+    --r3i-grad-end: 290 100% 50%;
+
+    --r3i-red: 0 86% 60%;
+    --r3i-yellow: 37 95% 52%;
+    --r3i-green: 142 71% 45%;
+
+    --r3i-text-muted: 0 0% 53%;
+
+    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Bebas Neue', cursive;
+    --font-accent: 'Caveat', cursive;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+}
+
+/* Font utilities */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+  font-weight: 600;
+}
+
+/* Gradient pill */
+.grad-pill {
+  background: linear-gradient(
+    to right,
+    hsl(var(--r3i-grad-start)),
+    hsl(var(--r3i-grad-mid)),
+    hsl(var(--r3i-grad-end))
+  );
+  border-radius: 50px;
+  padding: 2.5px;
+}
+
+.grad-pill-inner {
+  background: hsl(var(--background));
+  border-radius: 50px;
+  width: 100%;
+}
+
+/* Status dot colors */
+.status-red { background-color: hsl(var(--r3i-red)); }
+.status-yellow { background-color: hsl(var(--r3i-yellow)); }
+.status-green { background-color: hsl(var(--r3i-green)); }
+
+/* Decorative wave SVGs */
+.deco-wave {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 160px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
